@@ -2,7 +2,10 @@ module github.com/simonhammes/getting-started-with-go
 
 go 1.18
 
-require github.com/go-redis/redis/v8 v8.11.5
+require (
+	github.com/go-redis/redis/v8 v8.11.5
+	github.com/gorilla/mux v1.8.0
+)
 
 require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
