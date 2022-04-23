@@ -27,7 +27,7 @@ func UsersHandler(writer http.ResponseWriter, request *http.Request) {
 		defer request.Body.Close()
 
 		connection := cache.GetRedisConnection()
-		_, err = connection.SetNX(request.Context(), "user", body, 5*time.Second).Result()
+		_, err = connection.SetNX(request.Context(), "user", body, 300*time.Second).Result()
 		if err != nil {
 			http.Error(writer, "Internal server error", 500)
 			return
