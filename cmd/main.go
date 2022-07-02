@@ -1,14 +1,29 @@
 package main
 
 import (
+	"github.com/simonhammes/getting-started-with-go/pkg"
 	"log"
 	"net/http"
-
-	"github.com/simonhammes/getting-started-with-go/pkg/handlers"
 )
 
+/* type server struct {
+	// db     *someDatabase
+	router *mux.Router
+	// cache
+}*/
+
 func main() {
-	port := ":8080"
-	http.HandleFunc("/users", handlers.UsersHandler)
-	log.Fatal(http.ListenAndServe(port, nil))
+	err := run()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func run() error {
+	s := pkg.NewServer()
+
+	err := http.ListenAndServe(":8080", s)
+
+	return err
 }
