@@ -9,6 +9,9 @@ import (
 
 func main() {
 	port := ":8080"
-	http.HandleFunc("/users", handlers.UsersHandler)
+
+	http.HandleFunc("GET /users", handlers.GetUser)
+	http.HandleFunc("POST /users", handlers.SetUser)
+
 	log.Fatal(http.ListenAndServe(port, nil))
 }
