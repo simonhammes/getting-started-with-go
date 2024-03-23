@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -20,7 +20,7 @@ func GetUser(writer http.ResponseWriter, request *http.Request) {
 }
 
 func SetUser(writer http.ResponseWriter, request *http.Request) {
-	body, err := ioutil.ReadAll(request.Body)
+	body, err := io.ReadAll(request.Body)
 	if err != nil {
 		http.Error(writer, "Internal server error", 500)
 		return
