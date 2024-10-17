@@ -2,7 +2,7 @@ module github.com/simonhammes/getting-started-with-go
 
 go 1.22
 
-require github.com/redis/go-redis/v9 v9.6.2
+require github.com/redis/go-redis/v9 v9.7.0
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
